@@ -44,13 +44,15 @@ name' | Имя переменной/типа
 
 # Множества First Follow
 
+*l - letter* 
+
 Нетерминал | First | Follow
 -----------|-------|--------
-exp | 'v' | '$'
-var | 'v' | ' '
-type| 'l' | ';'
-type'| 'l' 'ε' | '$' 'l'
-varnames | 'l' | ':'
-varnames' | ',' 'ε' | ',' ':'
-name | 'l' | ';' ',' ':'
-name' | 'l' 'ε' | ';' ',' ':'
+exp | `v` | `$`
+var | `v` | ` `
+type| `l` | `;`
+type'| `l` `ε` | `$` `l`
+varnames | `l` | `:`
+varnames' | `,` `ε` | `,` `:`
+name | `l` | `;` `,` `:`
+name' | `l` `ε` | `;` `,` `:`
