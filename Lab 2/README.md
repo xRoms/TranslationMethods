@@ -21,7 +21,7 @@ name | Имя переменной/типа
 **Устраним правое ветвление**
 
 exp -> var other  
-other -> type; type'
+other -> type; type'  
 type' -> type; type'  
 type' -> ε  
 type -> varnames: name  
