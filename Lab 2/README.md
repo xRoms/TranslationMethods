@@ -25,8 +25,8 @@ other -> type; type'
 type' -> type; type'  
 type' -> ε  
 type -> varnames: name  
-varnames -> name varnames'  
-varnames' -> name varnames;  
+varnames -> namevarnames'  
+varnames' -> , namevarnames';  
 varnames' -> ε  
 name -> [a-z]name'  
 name' -> [a'z]name'  
