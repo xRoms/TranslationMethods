@@ -20,7 +20,7 @@ name | Имя переменной/типа
 
 **Устраним правое ветвление**
 
-exp -> var other 
+exp -> var other  
 other -> type; type'
 type' -> type; type'  
 type' -> ε  
