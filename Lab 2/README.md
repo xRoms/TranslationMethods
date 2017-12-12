@@ -17,13 +17,13 @@ varnames | Названия переменных одного типа чере�
 
 **Устраним правое ветвление**
 
-exp -> var other  
-other -> type; type'  
-type' -> type; type'  
-type' -> ε  
-type -> varnames: name  
-varnames -> namevarnames'  
-varnames' -> ,` `namevarnames';  
+`exp -> var other`  
+`other -> type; type'`  
+`type' -> type; type'`  
+`type' -> ε`  
+`type -> varnames: name`  
+`varnames -> namevarnames'`  
+`varnames' -> , namevarnames';`  
 varnames' -> ε  
 
 Нетерминалы | Описание
