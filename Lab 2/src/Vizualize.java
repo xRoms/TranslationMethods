@@ -10,11 +10,10 @@ public class Vizualize {
     private Graph graph;
     private List<Integer> levels = new ArrayList<Integer>();
     private int ls = 0;
-    private int gap = 300;
+    private int gap = 600;
     static int cnt = 0;
 
     private int load(Tree node, Tree parent, int depth) {
-
         graph.addNode(node.uniq());
         cnt++;
         Node smth = graph.getNode(node.uniq());
@@ -32,11 +31,14 @@ public class Vizualize {
         }
         int max = min;
         for (Tree child: node.children) {
+            if (child.node == null) {
+                continue;
+            }
             max = Math.max(load(child, node, depth + 1), max);
         }
         int x = (min + max) / 2;
         levels.set(depth, Math.max(x, levels.get(depth)));
-        smth.setAttribute("xy", x * gap, depth * -gap + gap * 10 / (depth + 1));
+        smth.setAttribute("xy", x * 3 * gap, depth * -gap + gap * 10 / (depth + 1));
         if (depth > 0) {
             levels.set(depth - 1, Math.max(levels.get(depth), levels.get(depth - 1)));
         }
@@ -49,7 +51,7 @@ public class Vizualize {
         graph = new SingleGraph("Tree");
         load(node, null, 0);
         graph.removeAttribute("ui.hide");
-        graph.addAttribute("ui.stylesheet", "node {text-size: 20}");
+        graph.addAttribute("ui.stylesheet", "node {text-size: 15;}");
 
         Viewer view = graph.display();
         view.disableAutoLayout();

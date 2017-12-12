@@ -14,16 +14,13 @@ public class Parser {
     }
 
     Tree Exp() throws ParseException {
-        System.err.println("enter exp " + lex.curToken);
         switch (lex.curToken) {
             case V:
                 lex.nextToken();
-                System.err.println("wasexp " + lex.curToken);
                 if (lex.curToken != Token.A) {
                     throw new ParseException("expected var", 0);
                 }
                 lex.nextToken();
-                System.err.println("wasexp " + lex.curToken);
                 if (lex.curToken != Token.R) {
                     throw new ParseException("expected var", 0);
                 }
@@ -36,7 +33,6 @@ public class Parser {
     }
 
     Tree Other() throws ParseException {
-        System.err.println("enter other " + lex.curToken);
         if (!isLetter(lex.curToken)) {
             throw new ParseException("expected letter", lex.curPos);
         }
@@ -49,7 +45,6 @@ public class Parser {
         return new Tree("other", Integer.toString(cnt++), type, new Tree("; ", Integer.toString(cnt++)), type2);
     }
     Tree Type() throws  ParseException {
-        System.err.println("enter type " + lex.curToken);
         if (!isLetter(lex.curToken)) {
             throw new ParseException("expected letter", lex.curPos);
         }
@@ -63,7 +58,6 @@ public class Parser {
     }
 
     Tree Name() throws ParseException {
-        System.err.println("enter name " + lex.curToken);
         if (!isLetter(lex.curToken)) {
             throw new ParseException("expected letter", lex.curPos);
         }
@@ -72,19 +66,16 @@ public class Parser {
             name = name.concat(Character.toString((char)lex.curChar));
             lex.nextToken();
         }
-        System.err.println(name);
         return new Tree(name, Integer.toString(cnt++));
     }
 
     Tree Varname() throws ParseException {
-        System.err.println("enter varname " + lex.curToken);
         Tree name = Name();
         Tree nextnames = aVarname();
         return new Tree("varnames", Integer.toString(cnt++), name, nextnames);
     }
 
     Tree aVarname() throws ParseException {
-        System.err.println("enter avarname " + lex.curToken);
         if (lex.curToken == Token.COM) {
             lex.nextToken();
             Tree name = Name();
@@ -95,14 +86,13 @@ public class Parser {
             if (lex.curToken != Token.CLN) {
                 throw new ParseException("expected colon", lex.curPos);
             }
-            return new Tree("", Integer.toString(cnt++));
+            return new Tree(null, Integer.toString(cnt++));
         }
     }
 
     Tree aType() throws  ParseException {
-        System.err.println("enter atype " + lex.curToken);
         if (lex.curToken == Token.END) {
-            return new Tree("", Integer.toString(cnt++));
+            return new Tree(null, Integer.toString(cnt++));
         }
         if (!isLetter(lex.curToken)) {
             throw new ParseException("expected letter", lex.curPos);
