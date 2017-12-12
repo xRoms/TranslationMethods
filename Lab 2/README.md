@@ -1,11 +1,11 @@
 # Разработка грамматики
 
-exp -> var other  
-other -> type; other  
-other -> type;  
-type -> varnames: name  
-varnames -> name, varnames  
-varnames -> name  
+`exp -> var other`  
+`other -> type; other`  
+`other -> type;`  
+`type -> varnames: name`  
+`varnames -> name, varnames`  
+`varnames -> name`  
 
 Нетерминалы | Описание
 ------------|---------
@@ -24,7 +24,7 @@ varnames | Названия переменных одного типа чере�
 `type -> varnames: name`  
 `varnames -> namevarnames'`  
 `varnames' -> , namevarnames';`  
-varnames' -> ε  
+`varnames' -> ε`  
 
 Нетерминалы | Описание
 ------------|---------
