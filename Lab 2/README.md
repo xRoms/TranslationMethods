@@ -6,8 +6,6 @@ other -> type;
 type -> varnames: name  
 varnames -> name, varnames  
 varnames -> name  
-name -> [a-z]name  
-name -> [a-z]  
 
 Нетерминалы | Описание
 ------------|---------
