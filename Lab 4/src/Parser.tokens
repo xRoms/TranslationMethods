@@ -1,0 +1,17 @@
+T__0=1
+T__1=2
+T__2=3
+T__3=4
+T__4=5
+T__5=6
+STRING=7
+CODE=8
+NONTERM=9
+TERMINAL=10
+WS=11
+'grammar '=1
+';'=2
+'@header'=3
+'@members'=4
+':'=5
+'|'=6
